@@ -18,9 +18,8 @@ export class AccessControlLogService {
 
   constructor() { }
 
-
-  addAccessItem(person, messages) {
-    this.logMessages.push();
+  addAccessItem(newLogMsg: any) {
+    this.logMessages.push(newLogMsg);
   }
 
   getAccessLog() {

@@ -1,0 +1,29 @@
+<h2> Access Log Form </h2>
+
+<form (ngSubmit)="logSubmit($event)" #myForm="ngForm" novalidate>
+  <label for="person-input"> Name </label>
+  <input id="person-input" type="text" placeholder="e.g. Jim Bob"
+    [(ngModel)]="newLogMsg.name" name="name" required #myPersonInput="ngModel" />
+
+  <div class="errors" *ngIf="myPersonInput.errors && myPersonInput.touched">
+    <p *ngIf="myPersonInput.errors.required">
+       Person's Name IS NOT GOOD!
+    </p>
+  </div>
+
+<br />
+
+  <label for="message-input"> Message </label>
+  <input id="message-input" type="text" placeholder="e.g. Wow a message!"
+    [(ngModel)]="newLogMsg.message" name="message" required #myMsgInput="ngModel" />
+
+  <div class="errors" *ngIf="myMsgInput.errors && myMsgInput.touched">
+    <p *ngIf="myMsgInput.errors.required">
+      Person's needs to put something here, stupid.
+    </p>
+  </div>
+
+<br />
+
+  <button *ngIf="myForm.valid"> Submit </button>
+</form>
